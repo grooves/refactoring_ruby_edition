@@ -1,6 +1,3 @@
-require 'movie'
-require 'rental'
-
 class Customer
   attr_reader :name
 
@@ -17,7 +14,7 @@ class Customer
     total_amount, frequent_renter_points = 0, 0
     result = "Rental Record for #{@name}\n"
     @rentals.each do |element|
-      this_amount = calculate_amount(element)
+      this_amount = amount_for(element)
 
       # レンタルポイントを加算
       frequent_renter_points += 1
@@ -35,19 +32,7 @@ class Customer
     result
   end
 
-  def calculate_amount(rental)
-    result = 0
-    # 各行の金額を計算
-    case rental.movie.price_code
-    when Movie::REGULAR
-      result += 2
-      result += (rental.days_rented - 2) * 1.5 if rental.days_rented > 2
-    when Movie::NEW_RELEASE
-      result += rental.days_rented * 3
-    when Movie::CHILDRENS
-      result += 1.5
-      result += (rental.days_rented - 3) * 1.5 if rental.days_rented > 3
-    end
-    result
+  def amount_for(rental)
+    rental.charge
   end
 end
