@@ -15,3 +15,7 @@ baba.add_rental rental2
 baba.add_rental rental3
 
 puts baba.statement
+
+puts '####################################'
+
+puts baba.html_statement
