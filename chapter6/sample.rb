@@ -1,5 +1,13 @@
-class ExtractMethod
+class Sample
   def print_owing
+    #動くためのソース（とりあえず）
+    @name = "Tanaka tarou"
+    order1 = Order.new 100
+    order2 = Order.new 200
+    @orders = []
+    @orders << order1
+    @orders << order2
+
     outstanding = 0.0
     # バナーを出力(print banner)
     puts "*********************"
@@ -12,7 +20,7 @@ class ExtractMethod
     end
 
     #詳細を表示(print details)
-    puts "name #{@name}"
-    puts "amount #{outstanding}"
+    puts "name: #{@name}"
+    puts "amount: #{outstanding}"
   end
 end
