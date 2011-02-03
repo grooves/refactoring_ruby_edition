@@ -12,9 +12,7 @@ class Sample
 
     print_banner
 
-    @orders.each do |order|
-      outstanding += order.amount
-    end
+    outstanding = calculate_outstanding(outstanding)
 
     print_detail outstanding
 
@@ -31,6 +29,10 @@ class Sample
     #詳細を表示(print details)
     puts "name: #{@name}"
     puts "amount: #{outstanding}"
+  end
+
+  def calculate_outstanding(initial_value)
+    @orders.inject(initial_value) {|result, order| result + order.amount}
   end
 
 end
