@@ -1,5 +1,5 @@
 class Sample
-  def print_owing
+  def print_owing(previous_amount)
     #動くためのソース（とりあえず）
     @name = "Tanaka tarou"
     order1 = Order.new 100
@@ -8,9 +8,13 @@ class Sample
     @orders << order1
     @orders << order2
 
+    outstanding = previous_amount * 1.2
+
     print_banner
 
-    outstanding = calculate_outstanding
+    @orders.each do |order|
+      outstanding += order.amount
+    end
 
     print_detail outstanding
 
@@ -29,7 +33,4 @@ class Sample
     puts "amount: #{outstanding}"
   end
 
-  def calculate_outstanding
-    @orders.inject(0.0) {|result, order| result + order.amount}
-  end
 end
