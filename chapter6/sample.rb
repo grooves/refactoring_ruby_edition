@@ -8,14 +8,9 @@ class Sample
     @orders << order1
     @orders << order2
 
-    outstanding = 0.0
-
     print_banner
 
-    #勘定を計算(calculate outstanding)
-    @orders.each do |order|
-      outstanding += order.amount
-    end
+    outstanding = calculate_outstanding
 
     print_detail outstanding
 
@@ -32,5 +27,15 @@ class Sample
     #詳細を表示(print details)
     puts "name: #{@name}"
     puts "amount: #{outstanding}"
+  end
+
+  def calculate_outstanding
+    outstanding = 0.0
+
+    #勘定を計算(calculate outstanding)
+    @orders.each do |order|
+      outstanding += order.amount
+    end
+    outstanding
   end
 end
