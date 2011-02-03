@@ -8,11 +8,9 @@ class Sample
     @orders << order1
     @orders << order2
 
-    outstanding = previous_amount * 1.2
-
     print_banner
 
-    outstanding = calculate_outstanding(outstanding)
+    outstanding = calculate_outstanding(previous_amount * 1.2)
 
     print_detail outstanding
 
