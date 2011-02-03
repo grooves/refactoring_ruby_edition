@@ -3,17 +3,16 @@ class Sample
     @quantity = quantity
     @item_price = item_price
   end
+
   def price
-   #add test data
-   if base_price > 1000
-     discount_factor = 0.95
-   else
-     discount_factor = 0.98
-   end
-   base_price * discount_factor
+    base_price * discount_factor
   end
 
   def base_price
-   @quantity * @item_price
+    @quantity * @item_price
+  end
+
+  def discount_factor
+    base_price > 1000 ? 0.95 : 0.98
   end
 end
