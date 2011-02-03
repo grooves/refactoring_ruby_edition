@@ -17,9 +17,8 @@ class Sample
       outstanding += order.amount
     end
 
-    #詳細を表示(print details)
-    puts "name: #{@name}"
-    puts "amount: #{outstanding}"
+    print_detail outstanding
+
   end
 
   def print_banner
@@ -27,5 +26,11 @@ class Sample
     puts "*********************"
     puts "****Customer Owes****"
     puts "*********************"
+  end
+
+  def print_detail(outstanding)
+    #詳細を表示(print details)
+    puts "name: #{@name}"
+    puts "amount: #{outstanding}"
   end
 end
