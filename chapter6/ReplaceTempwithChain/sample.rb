@@ -10,7 +10,7 @@ class Select
   end
 
 
-  def add_option(arg)
+  def and(arg)
    options << arg
    self
   end
