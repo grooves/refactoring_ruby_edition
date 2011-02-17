@@ -1,7 +1,7 @@
 @width = 20
 @height = 400
 
-temp = 2 * (@height + @width)
-puts temp
-temp = @height * @width
-puts temp
+perimeter = 2 * (@height + @width)
+puts perimeter
+area = @height * @width
+puts area
