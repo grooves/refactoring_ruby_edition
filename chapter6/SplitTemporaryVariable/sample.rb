@@ -7,12 +7,12 @@ class Sample
   end
     
   def distance_traveled(time)
-    acc = @primary_force / @mass
+    primary_acc = @primary_force / @mass
     primary_time = [time, @delay].min
-    result = 0.5 * acc * primary_time * primary_time
+    result = 0.5 * primary_acc * primary_time * primary_time
     secondary_time = time - @delay
     if(secondary_time > 0)
-      primary_vel = acc * @delay
+      primary_vel = primary_acc * @delay
       acc = (@primary_force + @secondary_force) / @mass
       result += primary_vel * secondary_time + 5 * acc * secondary_time * secondary_time
     end
