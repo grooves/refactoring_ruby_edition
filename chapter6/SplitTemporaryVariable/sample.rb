@@ -13,8 +13,8 @@ class Sample
     secondary_time = time - @delay
     if(secondary_time > 0)
       primary_vel = primary_acc * @delay
-      acc = (@primary_force + @secondary_force) / @mass
-      result += primary_vel * secondary_time + 5 * acc * secondary_time * secondary_time
+      secondary_acc = (@primary_force + @secondary_force) / @mass
+      result += primary_vel * secondary_time + 5 * secondary_acc * secondary_time * secondary_time
     end
     result
   end
