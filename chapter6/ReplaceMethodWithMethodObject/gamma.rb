@@ -17,11 +17,15 @@ class Gamma
   def compute
     @important_value1 = (input_val * quantity) + @account.delta
     @important_value2 = (input_val * year_to_date) + 100
-    if (year_to_date - @important_value1) > 100
-      @important_value2 -= 20
-    end
+    important_thing
     @important_value3 = @important_value2 * 7
     # and some actions
     @important_value3 - 2 * @important_value1
+  end
+
+  def important_thing
+    if (year_to_date - @important_value1) > 100
+      @important_value2 -= 20
+    end
   end
 end
