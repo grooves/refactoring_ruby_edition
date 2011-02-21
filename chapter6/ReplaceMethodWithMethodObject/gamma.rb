@@ -8,7 +8,7 @@ class Gamma
               :important_value3
 
   def initialize(account, input_val_arg, quantity_arg, year_to_date_arg)
-    @account = input_val_arg
+    @account = account
     @input_val = input_val_arg
     @quantity = quantity_arg
     @year_to_date = year_to_date_arg
