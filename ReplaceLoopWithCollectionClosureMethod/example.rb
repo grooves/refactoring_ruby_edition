@@ -1,3 +1,2 @@
-total = 0
-employees.each{|e| total +~ e.salaty}
+total = employees.inject(0){|sum, e| sum + e.salaty}
 
