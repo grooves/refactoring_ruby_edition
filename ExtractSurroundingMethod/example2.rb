@@ -20,13 +20,19 @@ class Person
   end
 
   def number_of_descendants_named(name)
-    children.inject(0) do | count, child |
-      count += 1 if child.name == name
-      count + child.number_of_descendants_named(name)
-    end
+    count_descendants_named(name)
   end
 
   def alive?
     @date_of_death.nil?
   end
+
+  protected
+  def count_descendants_named(name)
+    children.inject(0) do | count, child |
+      count += 1 if child.name == name
+    count + child.count_descendants_named(name)
+    end
+  end
 end
+
