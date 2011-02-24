@@ -1,1 +1,3 @@
-managerOffices = employees.select{|e|e.manager?}.collect{|e|e.office}
+total = 0
+employees.each{|e| total +~ e.salaty}
+
