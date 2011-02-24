@@ -11,4 +11,22 @@ class Person
   def add_child(child)
     @children << child
   end
+
+  def number_of_living_descendants
+    children.inject(0) do | count, child | 
+      count += 1 if child.alive?
+      count + child.number_of_living_descendants
+    end
+  end
+
+  def number_of_descendants_named(name)
+    children.inject(0) do | count, child |
+      count += 1 if child.name == name
+      count + child.number_of_descendants_named(name)
+    end
+  end
+
+  def alive?
+    @date_of_death.nil?
+  end
 end
