@@ -1,16 +1,10 @@
 class Test
 	attr_accessor :state
 
-	def failure
-		self.state = :failure
-	end
-
-	def error
-		self.state = :error
-	end
-
-	def success
-		self.state = :success
+	[:failure, :error, :success].each do |method|
+		define_method method do
+			self.state = method
+		end
 	end
 
 end
