@@ -1,10 +1,9 @@
 class SearchCriteria
-	attr_reader :author_id, :publisher_id, :isbn
 
-	def initialize(author_id, publisher_id, isbn)
-		@author_id = author_id
-		@publisher_id = publisher_id
-		@isbn = isbn
+	def initialize(params)
+		@author_id = params[:author_id]
+		@publisher_id = params[:publisher_id]
+		@isbn = params[:isbn]
 	end
 
 	def puts_params
@@ -15,5 +14,5 @@ class SearchCriteria
 end
 
 
-s = SearchCriteria.new(1,2,'test')
+s = SearchCriteria.new(:author_id => 1, :publisher_id => 2, :isbn => 'test')
 s.puts_params
