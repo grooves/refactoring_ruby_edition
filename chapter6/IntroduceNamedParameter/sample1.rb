@@ -1,9 +1,9 @@
 class SearchCriteria
 
-	def initialize(params)
-		@author_id = params[:author_id]
-		@publisher_id = params[:publisher_id]
-		@isbn = params[:isbn]
+	def initialize(hash)
+		@author_id = hash[:author_id]
+		@publisher_id = hash[:publisher_id]
+		@isbn = hash[:isbn]
 	end
 
 	def puts_params
@@ -14,5 +14,6 @@ class SearchCriteria
 end
 
 
-s = SearchCriteria.new(:author_id => 1, :publisher_id => 2, :isbn => 'test')
+hash = {:author_id => 1, :publisher_id => 2, :isbn => 'test'}
+s = SearchCriteria.new(hash)
 s.puts_params
