@@ -17,6 +17,6 @@ class Books
 end
 
 Books.find(:all)
-Books.find(:all, "title like '%Voodoo Economics'")
-Books.find(:all, "authors.name = 'Jenny James'", :authors)
-Books.find(:first, "authors.name = 'Jenny James'", :authors)
+Books.find(:all, :conditions => "title like '%Voodoo Economics'")
+Books.find(:all, :conditions => "authors.name = 'Jenny James'", :joins => [:authors])
+Books.find(:first, :conditions => "authors.name = 'Jenny James'", :joins => [:authors])
