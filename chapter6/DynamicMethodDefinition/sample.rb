@@ -1,4 +1,6 @@
 class Test
+	attr_accessor :state
+
 	def failure
 		self.state = :failure
 	end
@@ -12,3 +14,6 @@ class Test
 	end
 
 end
+
+test = Test.new
+p test.failure
