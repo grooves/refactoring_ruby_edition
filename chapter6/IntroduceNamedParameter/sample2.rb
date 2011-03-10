@@ -1,3 +1,14 @@
+module AssertValidKeys
+	def assert_valid_keys(*valid_keys)
+		unknown_keys = keys - [valid_keys].flatten
+		if unknown_keys.any?a
+			raise(ArgumentError, "Unknown key(s): #{unknown_keys.join(", ")}")
+		end
+	end
+end
+
+Hash.send(:include, AssertValidKeys)
+
 class Books
 	def self.find(selector, hash={})
 		hash[:joins] ||= []
